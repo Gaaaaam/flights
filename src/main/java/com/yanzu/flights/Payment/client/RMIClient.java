@@ -40,7 +40,7 @@ import java.rmi.RemoteException;
 public class RMIClient {
     //设定远程服务器注册中心的网络端口和ip地址
     private static final int REGISTRY_PORT = 9999;
-    private static final String REMOTE_HOST = "localhost";
+    private static final String REMOTE_HOST = "59.110.228.209";
     private static final String SERVICE_URL = "rmi://" + REMOTE_HOST + ":" + REGISTRY_PORT;
     private static final String SERVICE_NAME = "pay";
 
@@ -75,6 +75,53 @@ public class RMIClient {
 
     }
 
+    public String paycheck(Payment payment) throws RemoteException, JSONException {
+        String res = null;
+        try {
+            PayService handler = null;
+            try {
+                handler = (PayService) Naming.lookup(SERVICE_URL + "/" + SERVICE_NAME);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            res = handler.paycheck(payment);
+            if(res==null) {
+                System.out.println("远程执行结果: " + "未成功调用");
+            }else{
+                System.out.println("远程执行结果: " + res);
+            }
+            return res;
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public String test(){
+        String res = null;
+        try {
+            PayService handler = null;
+            try {
+                handler = (PayService) Naming.lookup(SERVICE_URL + "/" + SERVICE_NAME);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            res = handler.test();
+            if(res==null) {
+                System.out.println("远程执行结果: " + "未成功调用");
+            }else{
+                System.out.println("远程执行结果: " + res);
+            }
+            return res;
+        } catch (NotBoundException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
 
 
 }
