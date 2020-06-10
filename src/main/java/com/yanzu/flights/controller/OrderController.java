@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OrderController {
 
-    @RequestMapping("MyOrder")
+    @RequestMapping("/MyOrder")
     public String MyOrder(){
         return "MyOrder";
+    }
+
+    @RequestMapping("/PaymentConfirm")
+    public String Confirm(){
+        return "PaymentConfirm";
     }
 }
