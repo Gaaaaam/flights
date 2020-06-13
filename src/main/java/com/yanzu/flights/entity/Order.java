@@ -10,14 +10,19 @@ import java.util.Date;
 public class Order {
     private String OrderID;
     private String userID;
+    private String username;
+    private String identification;
+    private String phone;
+    private String address;
     private Date orderTime;
-    private float price;
+    private int price;
     private String modeOfPayment;
     private String departurePlace;
     private String destination;
     private String airline;
     private String shippingType;
     private Date departureTime;
+    private Date arrivalTime;
 
     public String getOrderID() {
         return OrderID;
@@ -47,7 +52,7 @@ public class Order {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -107,5 +112,35 @@ public class Order {
         this.arrivalTime = arrivalTime;
     }
 
-    private Date arrivalTime;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getIdentification() {
+        return identification;
+    }
+
+    public void setIdentification(String identification) {
+        this.identification = identification;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

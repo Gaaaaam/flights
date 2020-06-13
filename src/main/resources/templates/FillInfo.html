@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PaymentConfirm</title>
+    <script src="" th:src="@{/jquery/jquery.min.js}"></script>
+    <script src="" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css" >
+    <link rel="stylesheet" th:href="@{/background/style.css}" type="text/css">
+    <link rel="stylesheet" media="screen" th:href="@{/payment/css/style.css}" type="text/css">
+    <style>
+        body{
+            /*background-color: black;*/
+            /*color: black;*/
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<canvas style="z-index: -1;position: absolute;margin: 0 auto;display: block;"></canvas>
+
+<nav class="nanbar navbar-inverse navbar-fixed-top" role="navigation" style="z-index: 3;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="navbar-collapse">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="" th:href="@{/home}" class="navbar-brand">FlightsBooker</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" th:href="@{/home}">Home</a></li>
+                <li><a href="#" th:href="@{/ViewFlights}">ViewFlights</a></li>
+                <li><a href="#" th:href="@{/MyOrder}">MyOrder</a></li>
+                <li><a href="#" th:href="@{/ContactUs}">ContactUs</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+                <!--                    <li><a href="#">About</a></li>-->
+                <!--                    <li><a href="#">Study</a></li>-->
+                <!--                    <li><a href="#">Contact</a></li>-->
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" name="" class="form-control" placeholder="you can search content">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<br><br><br><br><br>
+
+<div class="container" style="z-index: 3;">
+    <form id="msform" th:action="@{/saveOrder}" method="post">
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">航班确认</li>
+            <li>信息填写</li>
+            <li>确认订单</li>
+<!--            <li>预定成功</li>-->
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+            <h1 class="fs-title" style="text-align: center">航班信息</h1>
+<!--            <h3 class="fs-subtitle">确定您选择的航班</h3>-->
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">航班号：</div><div style="float: right;font-size: large;">12345</div>
+<!--                <h4 style="left: 20px">航班号：</h4><h4 style="right: 20px;">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">航空公司：</div><div style="float: right;font-size: large;">中国航空</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">出发地：</div><div style="float: right;font-size: large;">上海</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">目的地：</div><div style="float: right;font-size: large;">迈阿密</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">起飞时间：</div><div style="float: right;font-size: large;">14：05</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">到达时间：</div><div style="float: right;font-size: large;">+1 00：20</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+            <div style="width: 360px;height: 50px;">
+                <div style="float: left;font-size: large;">价格：</div><div style="float: right;font-size: large;">￥3300</div>
+<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            </div>
+
+<!--            <input type="text" name="email" placeholder="Email" />-->
+<!--            <input type="password" name="pass" placeholder="Password" />-->
+<!--            <input type="password" name="cpass" placeholder="Confirm Password" />-->
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">填写个人信息</h2>
+<!--            <h3 class="fs-subtitle">我们将会为你保存它</h3>-->
+            <input type="text" name="name" placeholder="Name" />
+            <input type="text" name="ID" placeholder="Identification Number" />
+            <input type="text" name="phone" placeholder="Phone" />
+            <textarea name="address" placeholder="Address"></textarea>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">确定您的订单</h2>
+<!--            <h3 class="fs-subtitle">最后一步</h3>-->
+            <input type="text" name="twitter" placeholder="Twitter" />
+            <input type="text" name="facebook" placeholder="Facebook" />
+            <input type="text" name="gplus" placeholder="Google Plus" />
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+<!--            <input type="button" name="next" class="next action-button" value="Next" />-->
+            <input type="submit" name="submit" class="submit action-button" value="Confirm"  />
+        </fieldset>
+
+<!--        <fieldset>-->
+<!--            <h2 class="fs-title">支付成功！</h2>-->
+<!--&lt;!&ndash;            <h3 class="fs-subtitle">我们将会为你保存它</h3>&ndash;&gt;-->
+<!--            <input type="text" name="fname" placeholder="First Name" />-->
+<!--            <input type="text" name="lname" placeholder="Last Name" />-->
+<!--            <input type="text" name="phone" placeholder="Phone" />-->
+<!--            <textarea name="address" placeholder="Address"></textarea>-->
+<!--            <input type="button" name="previous" class="previous action-button" value="Previous" />-->
+<!--            <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
+<!--        </fieldset>-->
+    </form>
+</div>
+
+</body>
+
+<script src="" th:src="@{/background/js/zrveeq.js}"></script>
+<script src="" th:src="@{/background/js/index.js}"></script>
+
+<!-- payment js-->
+<script src="" th:src="@{/payment/js/script.js}"></script>
+<script src="" th:src="@{/payment/js/jquery.easing.min.js}"></script>
+
+</html>

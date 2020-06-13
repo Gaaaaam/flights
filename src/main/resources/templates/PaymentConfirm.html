@@ -2,19 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>PaymentConfirm</title>
+    <title>ContactUs</title>
     <script src="" th:src="@{/jquery/jquery.min.js}"></script>
     <script src="" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css" >
-    <link rel="stylesheet" th:href="@{/background/style.css}" type="text/css">
-    <link rel="stylesheet" media="screen" th:href="@{/payment/css/style.css}" type="text/css">
-    <style>
-        body{
-            /*background-color: black;*/
-            /*color: black;*/
-            overflow: hidden;
-        }
-    </style>
+    <link href="" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" href="" th:href="@{/background/style.css}" type="text/css">
 </head>
 <body>
 
@@ -36,7 +28,7 @@
                 <li><a href="#" th:href="@{/home}">Home</a></li>
                 <li><a href="#" th:href="@{/ViewFlights}">ViewFlights</a></li>
                 <li><a href="#" th:href="@{/MyOrder}">MyOrder</a></li>
-                <li><a href="#" th:href="@{/ContactUs}">ContactUs</a></li>
+                <li class="active"><a href="#" th:href="@{/ContactUs}">ContactUs</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Login</a></li>
@@ -51,67 +43,31 @@
     </div>
 </nav>
 
-<br><br><br><br><br>
+<br><br><br>
 
-<div class="container">
-    <form id="msform">
-        <!-- progressbar -->
-        <ul id="progressbar">
-            <li class="active">航班确认</li>
-            <li>信息填写</li>
-            <li>支付订单</li>
-<!--            <li>预定成功</li>-->
-        </ul>
-        <!-- fieldsets -->
-        <fieldset>
-            <h2 class="fs-title">航班信息</h2>
-<!--            <h3 class="fs-subtitle">确定您选择的航班</h3>-->
-            <input type="text" name="email" placeholder="Email" />
-            <input type="password" name="pass" placeholder="Password" />
-            <input type="password" name="cpass" placeholder="Confirm Password" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">填写个人信息</h2>
-<!--            <h3 class="fs-subtitle">我们将会为你保存它</h3>-->
-            <input type="text" name="fname" placeholder="First Name" />
-            <input type="text" name="lname" placeholder="Last Name" />
-            <input type="text" name="phone" placeholder="Phone" />
-            <textarea name="address" placeholder="Address"></textarea>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
-        </fieldset>
-        <fieldset>
-            <h2 class="fs-title">支付您的订单</h2>
-<!--            <h3 class="fs-subtitle">最后一步</h3>-->
-            <input type="text" name="twitter" placeholder="Twitter" />
-            <input type="text" name="facebook" placeholder="Facebook" />
-            <input type="text" name="gplus" placeholder="Google Plus" />
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-<!--            <input type="button" name="next" class="next action-button" value="Next" />-->
-            <input type="submit" name="submit" class="submit action-button" value="Submit" />
-        </fieldset>
+<div>
 
-<!--        <fieldset>-->
-<!--            <h2 class="fs-title">支付成功！</h2>-->
-<!--&lt;!&ndash;            <h3 class="fs-subtitle">我们将会为你保存它</h3>&ndash;&gt;-->
-<!--            <input type="text" name="fname" placeholder="First Name" />-->
-<!--            <input type="text" name="lname" placeholder="Last Name" />-->
-<!--            <input type="text" name="phone" placeholder="Phone" />-->
-<!--            <textarea name="address" placeholder="Address"></textarea>-->
-<!--            <input type="button" name="previous" class="previous action-button" value="Previous" />-->
-<!--            <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
-<!--        </fieldset>-->
+    <form th:action="@{/confirmPay}"  method="post">
+
+        <input type="submit" value="Pay">
     </form>
+
+<!--    <button class="btn btn-primary" onclick=""></button>-->
 </div>
+
+<div>Hey!What's going on here?</div>
 
 </body>
 
 <script src="" th:src="@{/background/js/zrveeq.js}"></script>
 <script src="" th:src="@{/background/js/index.js}"></script>
 
-<!-- payment js-->
-<script src="" th:src="@{/payment/js/script.js}"></script>
-<script src="" th:src="@{/payment/js/jquery.easing.min.js}"></script>
+<script>
+
+    function pay(){
+
+    }
+
+</script>
 
 </html>

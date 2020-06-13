@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yanzu.flights.mapper.OrderMapper">
+
+    <select id="selectByUserID" parameterType="String" resultType="Order">
+        select * from order where userID = #{userID}
+    </select>
+
+    <insert id="insertOrder" parameterType="Order">
+        insert into order
+        set orderID = #{orderID},userID = #{userID},orderTime = #{orderTime},price = #{price},modeOfPayment = # {modeOfPayment},departurePlace = #{departurePlace},destination = #{destination},airline = #{airline},departureTime = #{},arrivalTime = #{arrivalTime},username = #{username},identification = #{identification},phone = #{phone},address = #{address};
+    </insert>
+
+
+</mapper>

@@ -7,8 +7,29 @@
     <script src="" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <link href="" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="" th:href="@{/background/style.css}" type="text/css">
+    <style>
+        body{
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
+
+<script>
+    var weather = document.getElementById("weather");
+    var searchWeather = new XMLHttpRequest();
+    searchWeather.open('get','https://restapi.amap.com/v3/weather/weatherInfo?city=310000&key=fcfe1b7eebd89233411c669e05459ebe')
+    searchWeather.onreadystatechange = function(){
+        if (searchWeather.readyState==4&&searchWeather.status==200) {
+            var temp  = JSON.parse(searchWeather.responseText);
+            console.log(temp);
+            weather.innerText = temp.city.data;
+
+        }
+    }
+    searchWeather.send();
+
+</script>
 
 <canvas style="z-index: -1;position: absolute;margin: 0 auto;display: block;"></canvas>
 
@@ -43,10 +64,17 @@
         </div>
     </nav>
 
+<br><br><br>
 
-    <div>Hey!What's going on here?</div>
+    <div style="z-index: 3;">
+        <h1 style="color: white;">Hey!What's going on here?</h1>
+        </div>
+    <input style="z-index: 3;background-color: white;" type="text" id="weather" >
+<view>城市:{{temp.city.data}}</view>
 
 </body>
+
+
 
 <script src="" th:src="@{/background/js/zrveeq.js}"></script>
 <script src="" th:src="@{/background/js/index.js}"></script>
