@@ -7,12 +7,17 @@ import java.sql.Timestamp;
 
 public class Payment implements Serializable {
     private static final long serialVersionUID = 1L;
-    public String getId() {
-        return id;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public String getPayer() {
@@ -55,12 +60,12 @@ public class Payment implements Serializable {
         this.serialNumber = serialNumber;
     }
 
-    private String id;
+    private String orderNumber; //商品订单号
     private String payer;
     private String receiver;
     private BigDecimal transactionAmount;
     private Timestamp timestamp;
-    private String serialNumber;
+    private String serialNumber;  //交易序列号
 
 
 }
