@@ -66,71 +66,77 @@
         <fieldset>
             <h1 class="fs-title" style="text-align: center">航班信息</h1>
 <!--            <h3 class="fs-subtitle">确定您选择的航班</h3>-->
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">航班号：</div><div style="float: right;font-size: large;">12345</div>
-<!--                <h4 style="left: 20px">航班号：</h4><h4 style="right: 20px;">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">航班号：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="ID" th:value="${thisFlight.ID}">
+                </div>
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">航空公司：</div><div style="float: right;font-size: large;">中国航空</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">航空公司：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="company" th:value="${thisFlight.company}">
+                </div>
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">出发地：</div><div style="float: right;font-size: large;">上海</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">出发地：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="depart" th:value="${thisFlight.depart}">
+                </div>
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">目的地：</div><div style="float: right;font-size: large;">迈阿密</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">目的地：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="arrive" th:value="${thisFlight.arrive}">
+                </div>
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">起飞时间：</div><div style="float: right;font-size: large;">14：05</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">起飞时间：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px" type="text" name="departTime" th:value="${thisFlight.depart_time}">
+                </div>
+<!---->
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">到达时间：</div><div style="float: right;font-size: large;">+1 00：20</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">到达时间：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="arriveTime" th:value="${thisFlight.arrive_time}">
+                </div>
             </div>
-            <div style="width: 360px;height: 50px;">
-                <div style="float: left;font-size: large;">价格：</div><div style="float: right;font-size: large;">￥3300</div>
-<!--                <h4 style="left: auto">：</h4><h4 style="right: auto">12345</h4>-->
+            <div style="width: 340px;height: 50px;">
+                <div style="float: left;font-size: large;">价格：</div>
+                <div style="float: right;font-size: large;">
+                    <input style="height: 25px;" type="text" name="price" th:value="${thisFlight.price}">
+                </div>
             </div>
 
 <!--            <input type="text" name="email" placeholder="Email" />-->
 <!--            <input type="password" name="pass" placeholder="Password" />-->
 <!--            <input type="password" name="cpass" placeholder="Confirm Password" />-->
-            <input type="button" name="next" class="next action-button" value="Next" />
+            <input type="button" name="next" class="next action-button" onclick="showup()" value="Next" />
         </fieldset>
         <fieldset>
             <h2 class="fs-title">填写个人信息</h2>
 <!--            <h3 class="fs-subtitle">我们将会为你保存它</h3>-->
             <input type="text" name="name" placeholder="Name" />
-            <input type="text" name="ID" placeholder="Identification Number" />
+            <input type="text" name="identification" placeholder="Identification Number" />
             <input type="text" name="phone" placeholder="Phone" />
             <textarea name="address" placeholder="Address"></textarea>
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
-            <input type="button" name="next" class="next action-button" value="Next" />
+            <input type="button" name="previous" class="previous action-button" onclick="fadeaway()" value="Previous" />
+            <input type="button" name="next" class="next action-button" onclick="showup()" value="Next" />
         </fieldset>
         <fieldset>
             <h2 class="fs-title">确定您的订单</h2>
 <!--            <h3 class="fs-subtitle">最后一步</h3>-->
-            <input type="text" name="twitter" placeholder="Twitter" />
-            <input type="text" name="facebook" placeholder="Facebook" />
-            <input type="text" name="gplus" placeholder="Google Plus" />
-            <input type="button" name="previous" class="previous action-button" value="Previous" />
+<!--            <input type="text" name="twitter" placeholder="Twitter" />-->
+<!--            <input type="text" name="facebook" placeholder="Facebook" />-->
+<!--            <input type="text" name="gplus" placeholder="Google Plus" />-->
+            <input type="button" name="previous" class="previous action-button" onclick="fadeaway()" value="Previous" />
 <!--            <input type="button" name="next" class="next action-button" value="Next" />-->
-            <input type="submit" name="submit" class="submit action-button" value="Confirm"  />
+<!--            <input type="submit" name="submit" class="submit action-button" value="Confirm"  />-->
+<!--            <button type="submit" name="submit" class="submit action-button" value="ConfirmB"></button>-->
         </fieldset>
-
-<!--        <fieldset>-->
-<!--            <h2 class="fs-title">支付成功！</h2>-->
-<!--&lt;!&ndash;            <h3 class="fs-subtitle">我们将会为你保存它</h3>&ndash;&gt;-->
-<!--            <input type="text" name="fname" placeholder="First Name" />-->
-<!--            <input type="text" name="lname" placeholder="Last Name" />-->
-<!--            <input type="text" name="phone" placeholder="Phone" />-->
-<!--            <textarea name="address" placeholder="Address"></textarea>-->
-<!--            <input type="button" name="previous" class="previous action-button" value="Previous" />-->
-<!--            <input type="submit" name="submit" class="submit action-button" value="Submit" />-->
-<!--        </fieldset>-->
+        <input class="btn btn-info" id="confirm" style="position: absolute;bottom: 50px;left: 35px;display: none;font-size: larger;" type="submit" name="submit" value="Confirm"  />
     </form>
 </div>
 
@@ -142,5 +148,21 @@
 <!-- payment js-->
 <script src="" th:src="@{/payment/js/script.js}"></script>
 <script src="" th:src="@{/payment/js/jquery.easing.min.js}"></script>
+
+<script>
+    var count = 0;
+    function showup() {
+        count++;
+        if (count==2){
+            document.getElementById("confirm").style.display="block";
+        }
+    }
+    function fadeaway() {
+        count--;
+        if (count<2){
+            document.getElementById("confirm").style.display="none";
+        }
+    }
+</script>
 
 </html>

@@ -1,8 +1,8 @@
-package com.yanzu.flights.CheckFlights;
+package com.yanzu.plane_company.Plane;
 
 import java.io.Serializable;
 
-public class Flight {
+public class Flight implements Serializable {
     private String ID;
     private String company;
     private String arrive;

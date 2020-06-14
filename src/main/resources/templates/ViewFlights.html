@@ -113,78 +113,33 @@
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th>航班号</th>
                 <th>航空公司</th>
-                <th>起降时间</th>
-                <th>舱位类型</th>
+                <th>出发地</th>
+                <th>目的地</th>
+                <th>起飞时间</th>
+                <th>到达时间</th>
                 <th>价格</th>
-                <th>原价/节省</th>
-                <th>准点率/平均延时</th>
+                <th>票余量</th>
+<!--                <th>准点率/平均延时</th>-->
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><a th:href="@{/FillInfo}"><button class="btn btn-danger">Order</button></a></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
-            </tr>
-            <tr>
-                <td>中国国航</td>
-                <td>22:05<br>23:26</td>
-                <td>经济舱</td>
-                <td>1540</td>
-                <td>1699<br>159</td>
-                <td>96%<br>15分钟</td>
-                <td><button class="btn btn-danger">Order</button></td>
+            <tr th:each="Flights:${flightList}">
+                <td th:text="${Flights.ID}"></td>
+                <td th:text="${Flights.company}"></td>
+                <td th:text="${Flights.depart}"></td>
+                <td th:text="${Flights.arrive}"></td>
+                <td th:text="${Flights.depart_time}"></td>
+                <td th:text="${Flights.arrive_time}"></td>
+                <td th:text="${Flights.price}"></td>
+                <td th:text="${Flights.quantity}"></td>
+                <td>
+                    <a th:href="@{/FillInfo} + ${Flights.ID}">
+                    <button class="btn btn-danger">Order</button>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>

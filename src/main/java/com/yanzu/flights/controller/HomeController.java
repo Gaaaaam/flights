@@ -1,11 +1,15 @@
 package com.yanzu.flights.controller;
 
-import com.yanzu.flights.CheckFlights.Flight;
+//import com.yanzu.flights.CheckFlight.Plane.Flight;
+import com.yanzu.plane_company.Plane.Flight;
+import com.yanzu.plane_company.out.SearchFlight;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+//import java.util.List;
 
 /**
  * @author Gam
@@ -21,9 +25,10 @@ public class HomeController {
     }
 
     @RequestMapping("/ViewFlights")
-    public String ViewFlights(Model model){
-        List<Flight> flightList ;
-//        model.addAttribute("flightList",flightList);
+    public String ViewFlights(Model model) throws Exception {
+        SearchFlight searchFlight=new SearchFlight();
+        ArrayList<Flight> flightList =  searchFlight.main();
+        model.addAttribute("flightList",flightList);
         return "ViewFlights";
     }
 

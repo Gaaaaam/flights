@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class Order {
     private String OrderID;
+    private String flightID;
     private String userID;
     private String username;
     private String identification;
@@ -21,8 +22,8 @@ public class Order {
     private String destination;
     private String airline;
     private String shippingType;
-    private Date departureTime;
-    private Date arrivalTime;
+    private String departureTime;
+    private String arrivalTime;
 
     public String getOrderID() {
         return OrderID;
@@ -96,19 +97,19 @@ public class Order {
         this.shippingType = shippingType;
     }
 
-    public Date getDepartureTime() {
+    public String getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
 
-    public Date getArrivalTime() {
+    public String getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(Date arrivalTime) {
+    public void setArrivalTime(String arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 
@@ -142,5 +143,13 @@ public class Order {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
     }
 }

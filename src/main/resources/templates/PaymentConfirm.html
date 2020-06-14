@@ -7,6 +7,13 @@
     <script src="" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <link href="" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="" th:href="@{/background/style.css}" type="text/css">
+    <style>
+        .nice{
+            width: 700px;
+            height: 50px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
 
@@ -43,13 +50,75 @@
     </div>
 </nav>
 
-<br><br><br>
+<br><br><br><br>
 
-<div>
+<div class="container bg-success" style="z-index: 3;width: 750px;">
+    <div style="text-align: center">
+        <h2>我的订单</h2>
+    </div>
 
-    <form th:action="@{/confirmPay}"  method="post">
 
-        <input type="submit" value="Pay">
+    <form class="form-vertical" th:action="@{/confirmPay}" method="post">
+        <div class="nice">
+            <div style="float: left">订单号：</div>
+            <div style="float: right" th:text="${order.orderID}"></div>
+            <input name="orderID" type="hidden" th:value="${order.orderID}">
+        </div>
+        <div class="nice">
+            <div style="float: left">航班号：</div>
+            <div style="float: right" th:text="${order.flightID}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">航空公司：</div>
+            <div style="float: right" th:text="${order.airline}"></div>
+            <input name="orderID" type="hidden" th:value="${order.airline}">
+        </div>
+        <div class="nice">
+            <div style="float: left">出发地：</div>
+            <div style="float: right" th:text="${order.departurePlace}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">目的地：</div>
+            <div style="float: right" th:text="${order.destination}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">出发时间：</div>
+            <div style="float: right" th:text="${order.departureTime}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">到达时间：</div>
+            <div style="float: right" th:text="${order.arrivalTime}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">乘机人：</div>
+            <div style="float: right" th:text="${order.username}"></div>
+            <input name="orderID" type="hidden" th:value="${order.username}">
+        </div>
+        <div class="nice">
+            <div style="float: left">联系方式：</div>
+            <div style="float: right" th:text="${order.phone}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">下单时间：</div>
+            <div style="float: right" th:text="${order.orderTime}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">----------------------------------------------------------------------------</div>
+<!--            <div style="float: right" th:text=""></div>-->
+        </div>
+        <div class="nice">
+            <div style="float: left">支付状态：</div>
+            <div style="float: right;" th:text="${order.modeOfPayment}"></div>
+        </div>
+        <div class="nice">
+            <div style="float: left">支付金额：</div>
+            <div style="float: right" th:text="${order.price}"></div>
+            <input name="price" type="hidden" th:value="${order.price}">
+        </div>
+        <div class="nice">
+            <input type="submit" style="float: right;" class="btn btn-primary" value="Pay">
+        </div>
+
     </form>
 
 <!--    <button class="btn btn-primary" onclick=""></button>-->
