@@ -36,13 +36,59 @@
                 <!--                    <li><a href="#">Study</a></li>-->
                 <!--                    <li><a href="#">Contact</a></li>-->
             </ul>
+
+
             <form class="navbar-form navbar-right">
                 <input type="text" name="" class="form-control" placeholder="you can search content">
             </form>
         </div>
     </div>
 </nav>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container bg-info" style="z-index: 3">
+    <div class="table-responsive">
+        <h3>订单信息</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>订单号</th>
+                <th>订单时间</th>
+                <th>价格</th>
+                <th>出发地</th>
+                <th>目的地</th>
+                <th>航空公司</th>
+                <th>起飞时间</th>
+                <th>到达时间</th>
+                <th>用户名</th>
+                <!--                <th>准点率/平均延时</th>-->
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order:${orderList}">
+                <td th:text="${order.orderID}"></td>
+                <td th:text="${order.orderTime}"></td>
+                <td th:text="${order.price}"></td>
+                <td th:text="${order.departurePlace}"></td>
+                <td th:text="${order.destination}"></td>
+                <td th:text="${order.airline}"></td>
+                <td th:text="${order.departureTime}"></td>
+                <td th:text="${order.arrivalTime}"></td>
+                <td th:text="${order.username}"></td>
+                <td>
+                    <!--                                <a th:href="@{/FillInfo} + ${Flights.ID}">-->
+                    <!--                                    <button class="btn btn-danger">Order</button>-->
+                    <!--                                </a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div>Hey!What's going on here?</div>
 

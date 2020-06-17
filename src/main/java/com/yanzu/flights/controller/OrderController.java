@@ -1,9 +1,11 @@
 package com.yanzu.flights.controller;
 
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import com.yanzu.flights.Payment.client.RMIClient;
 import com.yanzu.flights.Payment.dependense.Payment;
 import com.yanzu.flights.entity.Order;
+import com.yanzu.flights.mapper.OrderMapper;
 import com.yanzu.flights.service.OrderService;
 import com.yanzu.plane_company.Plane.Flight;
 import com.yanzu.plane_company.out.BuyTicket;
@@ -18,12 +20,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Gam
@@ -35,16 +39,18 @@ public class OrderController {
 
     @Autowired
     private OrderService orderService;
-
+    @Autowired
+    OrderMapper orderMapper;
     private String userID = "1";
 
     @RequestMapping("/MyOrder")
-    public String MyOrder(){
+    public String MyOrder( Model model){
         //todo 张翼飞写获取全部订单
-
-
+        List<Order> orderList = orderMapper.selectByUserID(userID);
+        model.addAttribute("orderList",orderList);
         return "MyOrder";
     }
+
 
     @RequestMapping("/FillInfo{ID}")
     public String FillInfo(@PathVariable("ID") String ID,Model model,HttpServletResponse response) throws Exception{

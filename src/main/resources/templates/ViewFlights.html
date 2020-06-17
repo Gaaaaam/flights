@@ -33,6 +33,8 @@
         });
     });
 
+
+
 </script>
 
 <canvas style="z-index: -1;position: absolute;margin: 0 auto;display: block;"></canvas>
@@ -75,24 +77,24 @@
     <div class="b">
         <h3>航班查询</h3>
     </div>
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" action="SearchFlightByPlace" >
         <div class="form-group">
-            <label for="departurePlace" class="col-sm-2 control-label">出发地</label>
+            <label for="departurePlace"  id = "depart" class="col-sm-2 control-label">出发地</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="departurePlace" placeholder="请输入出发地">
+                <input type="text" class="form-control" name = "depart" id="departurePlace" placeholder="请输入出发地">
             </div>
         </div>
         <div class="form-group">
-            <label for="destination" class="col-sm-2 control-label">目的地</label>
+            <label for="destination" id = "arrive"  class="col-sm-2 control-label">目的地</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="destination" placeholder="请输入目的地">
+                <input type="text" class="form-control" name = "arrive" id="destination" placeholder="请输入目的地">
             </div>
         </div>
         <div class="form-group">
             <label for="datetimepicker1" class="col-sm-2 control-label">日期</label>
             <div class="col-sm-2">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" placeholder="请选择日期">
+                    <input type='text' id = "depart_time" class="form-control" placeholder="请选择日期">
                     <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
