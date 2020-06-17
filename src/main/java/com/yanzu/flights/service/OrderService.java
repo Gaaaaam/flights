@@ -50,4 +50,8 @@ public class OrderService {
         return orderList;
     }
 
+    public void changeOrderState(String orderID){
+        orderMapper.updateOrder(orderID,"Paid");
+    }
+
 }

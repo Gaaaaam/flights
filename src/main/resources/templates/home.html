@@ -7,27 +7,37 @@
     <script src="" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
     <link href="" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="" th:href="@{/background/style.css}" type="text/css">
+    <!-- loop picture -->
+    <link href="//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
     <style>
         body{
             overflow: hidden;
+        }
+         .slider {
+             width: 800px;
+             margin: 100px auto;
+         }
+        .slides img {
+            width: 800px;
+            height: 200px;
         }
     </style>
 </head>
 <body>
 
 <script>
-    var weather = document.getElementById("weather");
-    var searchWeather = new XMLHttpRequest();
-    searchWeather.open('get','https://restapi.amap.com/v3/weather/weatherInfo?city=310000&key=fcfe1b7eebd89233411c669e05459ebe')
-    searchWeather.onreadystatechange = function(){
-        if (searchWeather.readyState==4&&searchWeather.status==200) {
-            var temp  = JSON.parse(searchWeather.responseText);
-            console.log(temp);
-            weather.innerText = temp.city.data;
-
-        }
-    }
-    searchWeather.send();
+    // var weather = document.getElementById("weather");
+    // var searchWeather = new XMLHttpRequest();
+    // searchWeather.open('get','https://restapi.amap.com/v3/weather/weatherInfo?city=310000&key=fcfe1b7eebd89233411c669e05459ebe')
+    // searchWeather.onreadystatechange = function(){
+    //     if (searchWeather.readyState==4&&searchWeather.status==200) {
+    //         var temp  = JSON.parse(searchWeather.responseText);
+    //         console.log(temp);
+    //         weather.innerText = temp.city.data;
+    //
+    //     }
+    // }
+    // searchWeather.send();
 
 </script>
 
@@ -64,19 +74,43 @@
         </div>
     </nav>
 
-<br><br><br>
+<br><br><br><br>
 
-    <div style="z-index: 3;">
-        <h1 style="color: white;">Hey!What's going on here?</h1>
-        </div>
-    <input style="z-index: 3;background-color: white;" type="text" id="weather" >
-<view>城市:{{temp.city.data}}</view>
+<div style="z-index: 3;text-align: center">
+        <h1 style="color: white;">FlightsBooker,您的专属分布式彦祖机票订购网站。</h1>
+</div>
+
+<!--轮播图-->
+<div class="flexslider slider" style="z-index: 3">
+    <ul class="slides">
+        <li><img th:src="@{/pic/yanzu1.jpg}" /></li>
+        <li><img th:src="@{/pic/plane1.jpg}" /></li>
+        <li><img th:src="@{/pic/class1.jpg}" /></li>
+        <li><img th:src="@{/pic/man1.jpg}" /></li>
+    </ul>
+</div>
+<!--    <input style="z-index: 3;background-color: white;" type="text" id="weather" >-->
+<!--<view>城市:{{temp.city.data}}</view>-->
 
 </body>
 
-
+<!---picture loop js-->
+<script src="//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script>
 
 <script src="" th:src="@{/background/js/zrveeq.js}"></script>
 <script src="" th:src="@{/background/js/index.js}"></script>
+
+<script>
+    $(function(){
+        $('.flexslider').flexslider({
+            animation: 'slide',                 // 必备参数，自动滑动
+            slideshowSpeed: 5000,              // 每次自动滑动间隔时间，默认为 7000，单位为 ms
+            animationSpeed: 1000,              // 手动点击滑动时间，默认为 600，单位为 ms
+            //itemWidth: 900                  // 定义每个 item 宽度，单位为 px，默认为 100%
+            slideshow: true,                //载入页面时，是否自动播放
+            directionNav: true             //是否显示左右控制按钮
+        })
+    })
+</script>
 
 </html>

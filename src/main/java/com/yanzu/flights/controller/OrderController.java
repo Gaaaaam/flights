@@ -160,6 +160,7 @@ public class OrderController {
             if(Integer.parseInt(status)==200){
                 BuyTicket buyTicket = new BuyTicket();
                 if (buyTicket.main(flightID)){
+                    orderService.changeOrderState(orderID);
                     out.println("<script>");
                     out.println("alert('"+message+"')");
                     out.println("</script>");
