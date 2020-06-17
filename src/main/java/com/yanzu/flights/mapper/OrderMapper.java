@@ -15,4 +15,5 @@ public interface OrderMapper {
 
     public List<Order> selectByUserID(String userID);
     public void insertOrder(Order order);
+    public void updateOrder(String orderId,String modeOfPayment);
 }

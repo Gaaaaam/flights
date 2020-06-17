@@ -5,7 +5,7 @@
 <mapper namespace="com.yanzu.flights.mapper.OrderMapper">
 
     <select id="selectByUserID" parameterType="String" resultType="Order">
-        select * from order where userID=#{userID}
+        select * from flight_order where userID=#{userID}
     </select>
 
     <insert id="insertOrder" parameterType="Order">
@@ -13,5 +13,9 @@
         set orderID=#{orderID},userID=#{userID},flightID=#{flightID},orderTime=#{orderTime},price=#{price},departurePlace=#{departurePlace},destination=#{destination},airline=#{airline},departureTime=#{departureTime},arrivalTime=#{arrivalTime},username=#{username},identification=#{identification},phone=#{phone},address=#{address},modeOFpayment=#{modeOfPayment}
     </insert>
 
+
+    <update id="updateOrder" parameterType="String">
+        update flight_order set modeOfPayment = #{modeOfPayment} where orderId = #{orderId};
+    </update>
 
 </mapper>

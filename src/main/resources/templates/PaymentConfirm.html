@@ -67,11 +67,12 @@
         <div class="nice">
             <div style="float: left">航班号：</div>
             <div style="float: right" th:text="${order.flightID}"></div>
+            <input name="flightID" type="hidden" th:value="${order.flightID}" >
         </div>
         <div class="nice">
             <div style="float: left">航空公司：</div>
             <div style="float: right" th:text="${order.airline}"></div>
-            <input name="orderID" type="hidden" th:value="${order.airline}">
+            <input name="receiver" type="hidden" th:value="${order.airline}">
         </div>
         <div class="nice">
             <div style="float: left">出发地：</div>
@@ -92,7 +93,7 @@
         <div class="nice">
             <div style="float: left">乘机人：</div>
             <div style="float: right" th:text="${order.username}"></div>
-            <input name="orderID" type="hidden" th:value="${order.username}">
+            <input name="payer" type="hidden" th:value="${order.username}">
         </div>
         <div class="nice">
             <div style="float: left">联系方式：</div>

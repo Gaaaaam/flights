@@ -10,6 +10,7 @@ import com.yanzu.plane_company.out.BuyTicket;
 import com.yanzu.plane_company.out.SearchFlight;
 import com.yanzu.plane_company.out.SearchQuantity;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -112,7 +114,7 @@ public class OrderController {
             @RequestParam("flightID")String flightID,
             @RequestParam("payer")String payer,
             @RequestParam("receiver")String receiver,
-            @RequestParam("price")String price,
+            @RequestParam("price") String price,
             HttpServletResponse response
     ) throws Exception {
         PrintWriter out = response.getWriter();
@@ -125,24 +127,46 @@ public class OrderController {
         payment.setPayer(payer);
         payment.setReceiver(receiver);
         payment.setOrderNumber(orderID);
+        payment.setTransactionAmount(new BigDecimal(price));
         //调用支付接口
         String result = client.paycheck(payment);
-        if (result.equals("success")){
-            BuyTicket buyTicket = new BuyTicket();
-            if (buyTicket.main(flightID)){
-                out.println("<script>");
-                out.println("alert('支付成功！')");
-                out.println("</script>");
-                return "";
-            }else {
-                return "confirmPay";
-            }
-        }else {
+        // 失败调用支付的远程服务
+        if(result == null){
+            System.out.println("远程调用支付服务失败");
             out.println("<script>");
-            out.println("alert('支付失败！')");
+            out.println("alert('支付远程服务调用失败！')");
             out.println("</script>");
-            return "confirmPay";
+            return "home";
         }
+        else{
+            JSONObject jsonObject = new JSONObject(result);
+            //获取返回的状态码
+            String status = jsonObject.getString("status");
+            System.out.println("支付服务返回的状态码："+status);
+            //获取状态返回消息
+            String message = jsonObject.getString("状态返回消息");
+            System.out.println("支付服务返回的消息：" + message);
+            // 支付成功
+            if(Integer.parseInt(status)==200){
+                BuyTicket buyTicket = new BuyTicket();
+                if (buyTicket.main(flightID)){
+                    out.println("<script>");
+                    out.println("alert('"+message+"')");
+                    out.println("</script>");
+                    return "home";
+                }else {
+                    return "home";
+                }
+            }
+            else{
+                out.println("<script>");
+                out.println("alert('"+message+"')");
+                out.println("</script>");
+                return "home";
+            }
+
+        }
+
 
     }
 }
