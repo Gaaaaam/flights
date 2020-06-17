@@ -40,6 +40,9 @@ public class OrderController {
 
     @RequestMapping("/MyOrder")
     public String MyOrder(){
+        //todo 张翼飞写获取全部订单
+
+
         return "MyOrder";
     }
 
@@ -93,7 +96,7 @@ public class OrderController {
             HttpServletResponse response,
             Model model
         ){
-            response.setContentType("utf-8");
+            response.setCharacterEncoding("utf-8");
 
         // TODO: 2020/6/12  调用查询机票的余量接口
 
@@ -117,6 +120,7 @@ public class OrderController {
             @RequestParam("price") String price,
             HttpServletResponse response
     ) throws Exception {
+        response.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
         out.flush();
 
