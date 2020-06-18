@@ -14,5 +14,8 @@ public interface FlightService {
     public ArrayList<Flight> searchplace(String depart, String arrive);//查找地点
     public ArrayList<Flight> searchquantity(String ID);//查余量
     public boolean buyticket(String ID);//购买机票
+    public ArrayList<Flight> searcharriveplace(String arrive);//查找到达地点 
+    public ArrayList<Flight> searchdepartplace(String depart);//查找出发地点 
+    public ArrayList<Flight> searchA_D_Dflight(String depart, String arrive, String depart_time);//查找到达、出发、时间
 }
 
