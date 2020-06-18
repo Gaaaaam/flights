@@ -99,6 +99,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
@@ -126,6 +127,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
@@ -153,6 +155,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
@@ -179,6 +182,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
@@ -207,6 +211,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
@@ -234,6 +239,7 @@ public class FlightServiceImpl implements FlightService {
             while (rs.next()) {
                 Flight flight = new Flight();
                 flight.setID(rs.getString("ID"));
+                flight.setCompany(rs.getString("company"));
                 flight.setArrive(rs.getString("arrive"));
                 flight.setArrive_time(rs.getString("arrive_time"));
                 flight.setDepart(rs.getString("depart"));
